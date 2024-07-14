@@ -1,0 +1,21 @@
+package javaaa;
+import java .util.*;
+public class Palindrome {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc= new Scanner(System.in);
+		String s= sc.nextLine();
+		s=s.toLowerCase();
+		for(int i=0;i<s.length()/2;i++) {
+			char start=s.charAt(i);
+			char end=s.charAt(i);
+			if(start!=end) {
+				System.out.println("not a palindrome");
+			}
+		}
+		System.out.println(" a palindrome");
+	}
+	
+
+}
