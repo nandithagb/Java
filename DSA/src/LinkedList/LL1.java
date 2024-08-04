@@ -121,6 +121,53 @@ public class LL1 {
 		}
 		System.out.println("end");
 	}
+	
+	
+	
+	// recursion reverse
+	
+	
+	public void reverse(Node node) {
+		if(node==tail) {
+			head=tail;
+			return;
+		}
+		
+		reverse(node.next);
+		tail.next=node;
+		tail=node;
+		tail.next=null;
+	}
+	
+	
+	
+	
+	// in place reversal
+	public void reversal() {
+		if(size<2) {
+			return;
+		}
+		Node prev=null;
+		Node present=head;
+		Node next=present.next;
+		while(present!=null) {
+			present.next=prev;
+			prev=present;
+			present=next;
+			if(next!=null) {
+				next=next.next;
+			}
+			
+		}
+		head=prev;
+	}
+	
+	// reverse linked list at particular indexes
+	
+	
+
+	
+	
 	public class Node{
 		private int val;
 		private Node next;
@@ -135,6 +182,94 @@ public class LL1 {
 		}
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// questionsssss
+	// remove duplicates from sorted list
+public void duplicates() {
+	Node node= head;
+	while(tail!=null) {
+		if(node.val==node.next.val) {
+			node.next=node.next.next;
+			size--;
+		}else {
+			node=node.next;
+		}
+		
+		tail=node;
+		tail.next=null;
+	}
+}
+
+
+
+
+// question2
+// merge two sorted linked list
+
+public static LL1 merge(LL1 first, LL1 second) {
+	Node f= first.head;
+	Node s= second.head;
+	LL1 ans= new LL1();
+	while(f!=null && s!=null) {
+		if(f.val<s.val) {
+			ans.insertatlast(f.val);
+			f=f.next;
+		}else {
+			ans.insertatlast(s.val);
+			s=s.next;
+		}
+	}
+	
+	while(f!=null) {
+		ans.insertatlast(f.val);
+		f=f.next;
+	}
+	while(s!=null) {
+		ans.insertatlast(s.val);
+		s=s.next;
+	}
+	return ans;
+	
+}
+
+
+
+
+public static void main(String [] args) {
+//	LL1 list= new LL1();
+//	list.insertatlast(2);
+//	list.insertatlast(12);
+//	list.insertatlast(12);
+//	list.insertatlast(32);
+//	list.insertatlast(32);
+//	list.insertatlast(32);
+//	list.display();
+//	list.duplicates();
+//	list.display();
+	
+	LL1 first= new LL1();
+	LL1 second = new LL1();
+	first.insertatlast(1);
+	first.insertatlast(3);
+	first.insertatlast(5);
+	
+	
+	second.insertatlast(1);
+	second.insertatlast(2);
+	second.insertatlast(9);
+	second.insertatlast(14);
+	LL1 ans= LL1.merge(first, second);
+	ans.display();
+	
+}
 
 }
 
