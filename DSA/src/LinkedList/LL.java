@@ -24,6 +24,19 @@ public class LL {
 		}
 		System.out.println("END");
 	}
+	public void insertrec(int val,int index) {
+		head= insertrec(val,index,head);
+		
+	}
+	private Node insertrec(int val,int index,Node node) {
+		if(index==0) {
+			Node temp = new Node(val,node);
+			size++;
+			return temp;
+		}
+		node.next=insertrec(val,index--,node.next);
+		return node;
+	}
 private class Node {
 	int val;
 	Node next;
