@@ -111,9 +111,6 @@ public class CycleLinkedQuestions {
 	        return head==null || secondhead==null;
 	    }
 	 
-	 
-	 
-	 
 	 public ListNode detectCycle(ListNode head) {
 	        int length=0;
 	        ListNode fast=head;
